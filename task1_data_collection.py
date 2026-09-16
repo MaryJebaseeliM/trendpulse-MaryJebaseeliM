@@ -4,11 +4,7 @@ import os
 import json
 from datetime import datetime
 
-# -----------------------------
-# TrendPulse - Task 1
-# Fetch Hacker News stories,
-# categorize, and save to JSON
-# -----------------------------
+
 
 # API endpoints
 TOP_STORIES_URL = "https://hacker-news.firebaseio.com/v0/topstories.json"
