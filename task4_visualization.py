@@ -110,3 +110,93 @@ plt.show()
 
 plt.close()
 
+# Bonus: TrendPulse Dashboard
+# --------------------------------------------------
+
+fig, axes = plt.subplots(2, 2, figsize=(16, 10))
+
+# -------------------------
+# Dashboard Chart 1
+# -------------------------
+
+axes[0, 0].barh(
+    top_10["short_title"],
+    top_10["score"]
+)
+
+axes[0, 0].set_xlabel("Score")
+axes[0, 0].set_ylabel("Story Title")
+axes[0, 0].set_title("Top 10 Stories by Score")
+
+# Highest score at top
+axes[0, 0].invert_yaxis()
+
+
+# -------------------------
+# Dashboard Chart 2
+# -------------------------
+
+axes[0, 1].bar(
+    category_counts.index,
+    category_counts.values,
+    color=plt.cm.tab10(range(len(category_counts)))
+)
+
+axes[0, 1].set_xlabel("Category")
+axes[0, 1].set_ylabel("Number of Stories")
+axes[0, 1].set_title("Stories per Category")
+
+axes[0, 1].tick_params(axis="x", rotation=45)
+
+
+# -------------------------
+# Dashboard Chart 3
+# -------------------------
+
+axes[1, 0].scatter(
+    not_popular["score"],
+    not_popular["num_comments"],
+    label="Not Popular"
+)
+
+axes[1, 0].scatter(
+    popular["score"],
+    popular["num_comments"],
+    label="Popular"
+)
+
+axes[1, 0].set_xlabel("Score")
+axes[1, 0].set_ylabel("Number of Comments")
+axes[1, 0].set_title("Score vs Comments")
+axes[1, 0].legend()
+
+
+# -------------------------
+# Empty fourth subplot
+# -------------------------
+
+axes[1, 1].axis("off")
+
+
+# Overall dashboard title
+fig.suptitle("TrendPulse Dashboard", fontsize=20)
+
+plt.tight_layout()
+
+# Save dashboard
+plt.savefig(
+    "outputs/dashboard.png",
+    dpi=300,
+    bbox_inches="tight"
+)
+
+plt.show()
+
+plt.close()
+
+print("\nAll charts created successfully!")
+print("Saved files:")
+print(" - outputs/chart1_top_stories.png")
+print(" - outputs/chart2_categories.png")
+print(" - outputs/chart3_scatter.png")
+print(" - outputs/dashboard.png")
