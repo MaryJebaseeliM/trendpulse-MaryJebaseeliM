@@ -72,9 +72,7 @@ def fetch_story(story_id):
 
 def main():
 
-    # -------------------------------------------------
     # Step 1: Fetch the top 500 story IDs
-    # -------------------------------------------------
 
     try:
         response = requests.get(
@@ -95,9 +93,8 @@ def main():
         return
 
 
-    # -------------------------------------------------
+ 
     # Storage for collected stories
-    # -------------------------------------------------
 
     collected_stories = []
 
@@ -108,9 +105,9 @@ def main():
     }
 
 
-    # -------------------------------------------------
+
     # Step 2: Process each category
-    # -------------------------------------------------
+ 
 
     for category in CATEGORIES:
 
@@ -167,9 +164,8 @@ def main():
         time.sleep(2)
 
 
-    # -------------------------------------------------
     # Step 3: Save results to JSON
-    # -------------------------------------------------
+
 
     # Create data folder if it doesn't exist
     os.makedirs("data", exist_ok=True)
@@ -189,9 +185,9 @@ def main():
         )
 
 
-    # -------------------------------------------------
+   
     # Final output
-    # -------------------------------------------------
+ 
 
     print(
         f"\nCollected {len(collected_stories)} stories. "
