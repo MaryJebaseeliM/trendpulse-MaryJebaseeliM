@@ -1,10 +1,6 @@
 import pandas as pd
 import numpy as np
 
-# --------------------------------------------------
-# Task 3: Load, Explore, Analyze and Save Trend Data
-# --------------------------------------------------
-
 # 1. Load the clean CSV file
 df = pd.read_csv("data/trends_clean.csv")
 
@@ -23,9 +19,7 @@ print(f"\nAverage score   : {average_score:,.2f}")
 print(f"Average comments: {average_comments:,.2f}")
 
 
-# --------------------------------------------------
 # 2. Basic Analysis with NumPy
-# --------------------------------------------------
 
 # Convert score column to NumPy array
 scores = df["score"].to_numpy()
@@ -70,9 +64,8 @@ print(
 )
 
 
-# --------------------------------------------------
 # 3. Add New Columns
-# --------------------------------------------------
+
 
 # Engagement = comments / (score + 1)
 df["engagement"] = df["num_comments"] / (df["score"] + 1)
@@ -81,9 +74,8 @@ df["engagement"] = df["num_comments"] / (df["score"] + 1)
 df["is_popular"] = df["score"] > average_score
 
 
-# --------------------------------------------------
 # 4. Save the Updated DataFrame
-# --------------------------------------------------
+
 
 df.to_csv("data/trends_analysed.csv", index=False)
 
